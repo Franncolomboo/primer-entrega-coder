@@ -13,6 +13,8 @@ const carrito = {
 
 const corte = 0; 
 
+
+//La funcion leer producto pide al usuario los datos del producto y los asigna a un objeto producto , luego retorna el objeto modificado
 function leerProducto(producto){
     producto.nombre = prompt('Ingrese el nombre del producto: ')
     producto.marca = prompt('Ingrese la marca del producto')
@@ -21,8 +23,17 @@ function leerProducto(producto){
     return producto
 }
 
+//La funcion agregar producto recibe un objeto producto y un objeto carrito y agrega el producto al arreglo bolsa del carrito
 function agregarProducto(producto,carrito){
     carrito.bolsa.push(producto)
+}
+
+//La funcion eliminar producto recibe el nombre del producto a eliminar y el objeto carrito , busca el producto en el arreglo bolsa y lo elimina
+function eliminarProducto(nombre,carrito){
+    let pos = carrito.bolsa.indexOf(nombre)
+    if(pos !== -1){
+        carrito.bolsa.splice(pos,1)
+    }
 }
 
 function opciones(opcion){
@@ -34,7 +45,8 @@ function opciones(opcion){
     prompt('4. Solicitar precio del carrito ')
     prompt('5. Consultar descuento ')
     prompt('6. Finalizar compra')
-
+    prompt('0. Salir ')
+    prompt('')
     opcion = Number(prompt('Ingrese una opcion: '))
     return opcion;
 }
