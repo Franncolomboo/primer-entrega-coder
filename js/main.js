@@ -66,7 +66,11 @@ function compra(carrito){
 
 function descuento(carrito){
     if(carrito.cantidadTotal > 5 && carrito.precioTotal > 2000){
+        alert('Usted tiene un descuento del 10% por haber comprado mas de 5 productos y superar los $2000');
         return carrito.precioTotal * 0.10; // monto del descuento
+    }
+    else{
+        alert('No aplica descuento');
     }
     return 0;
 }
@@ -93,6 +97,13 @@ function finalizarCompra(carrito){
     }
 }
 
+function mostrarCarritoActual(carrito){
+    alert('Los productos actuales del carrito se estan mostrando en consola! ')
+    for(let i=0 ;i<carrito.bolsa.length ;i++){
+        console.log('Nombre: '+ carrito.bolsa[i].nombre + ' Marca '+carrito.bolsa[i].marca + ' Precio: '+carrito.bolsa[i].precio + ', Cantidad: '+carrito.bolsa[i].cantidad)
+    }
+}
+
 
 function opciones(){
     return  Number(prompt(
@@ -103,7 +114,8 @@ function opciones(){
             "4. Solicitar precio del carrito \n" +
             "5. Consultar descuento \n" +
             "6. Finalizar compra \n" +
-            "0. Salir \n\n" +
+            "7. Mostrar carrito actual \n" +
+            "0. Salir \n" +
             "Ingrese una opción: "
         ));
 }
@@ -130,11 +142,16 @@ function menu(){
             case 6:
                 finalizarCompra(carrito);
                 break;
+            case 7:
+                mostrarCarritoActual(carrito);
+                break;
             case 0:
                 break;
         }
         numero = opciones();
     }
 }
+
+confirm('Bienvenido a nuestra tienda online! \n Presione Aceptar para continuar');
 
 menu();
