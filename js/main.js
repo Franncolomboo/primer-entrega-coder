@@ -58,10 +58,6 @@ function compra(carrito){
         prod = {} // segun ChatGpt es mejor crear un nuevo objeto porque JS maneja los objetos por referencia y si no se crea un nuevo objeto se van a ir modificando los datos del mismo objeto
         leerProducto(prod)  
     }
-
-    if(carrito.cantidadTotal > 5 && carrito.precioTotal > 2000){
-        carrito.precioTotal = carrito.precioTotal - (carrito.precioTotal * 0.1)
-    }
 }
 
 function descuento(carrito){
