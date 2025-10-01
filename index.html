@@ -29,17 +29,22 @@
                         Cantidad: <input type="number" id="cantidad" required>
                         Precio: <input type="number" id="precio" required>
                         <button class="boton-agregar" id="agregarProducto" type="submit">Agregar producto</button>
-                        <button class="boton-finalizar" id="finalizarCompra" type="button">Finalizar compra</button>
+                        <button class="boton-finalizar" id="btn-finalizar" type="button">Finalizar compra</button>
                     </form>
                 </div>  
             </div>
         </section>
+        <div id="carrito-render"></div>
         <div class="carrito" id="carrito-icon">
             <div class="carrito-contenido" id="carrito-contenido">
-                <img src="./assets/img/carritto-logo.png" id="carrito-img" class="carrito" alt="Carrito">
+                <img src="./assets/img/carritto-logo.png" id="carrito-img" class="carrito-img" alt="Carrito">
                 <div class="cantidad" id="cantidad-carrito"></div>
             </div>
         </div>
+        <section class="compra-container">
+            <div class="compra" id="detalle-compra">
+                
+            </div>
     </main>
 </body>
 </html>
