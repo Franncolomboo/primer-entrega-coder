@@ -23,21 +23,21 @@
             <div class="productos" id="productos">
                 <div>
                     <form id="producto-form" class="producto-form" action="">
+                        <div id="mensaje"></div>    
                         Nombre: <input type="text" id="nombre" required>
                         Marca: <input type="text" id="marca" required>
                         Cantidad: <input type="number" id="cantidad" required>
                         Precio: <input type="number" id="precio" required>
                         <button class="boton-agregar" id="agregarProducto" type="submit">Agregar producto</button>
                         <button class="boton-finalizar" id="finalizarCompra" type="button">Finalizar compra</button>
-                        <div id="mensaje"></div>
                     </form>
                 </div>  
             </div>
         </section>
-        <div class="carrito" id="carrito">
+        <div class="carrito" id="carrito-icon">
             <div class="carrito-contenido" id="carrito-contenido">
-                <img class="carrito-img" src="./assets/img/carritto-logo.png" alt="">
-                <div class="cantidad" id="cantidad"></div>
+                <img src="./assets/img/carritto-logo.png" id="carrito-img" class="carrito" alt="Carrito">
+                <div class="cantidad" id="cantidad-carrito"></div>
             </div>
         </div>
     </main>

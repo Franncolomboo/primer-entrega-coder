@@ -154,14 +154,28 @@
 
 //menu();
 
-const carrito = {
+// Inicializo carrito leyendo del localStorage
+let carrito = JSON.parse(localStorage.getItem("carrito")) || {
     precioTotal: 0,
     cantidadTotal: 0,
-    bolsa : [],
-}
+    bolsa: []
+};
 
+// Referencias a elementos
 const form = document.getElementById('producto-form');
 const mensajeDiv = document.getElementById('mensaje');
+const cantidadCarrito = document.getElementById('cantidad-carrito');
+
+// Función para actualizar el localStorage
+function guardarCarrito() {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+// Mostrar cantidad en el ícono al cargar la página
+if (carrito.cantidadTotal > 0) {
+    cantidadCarrito.textContent = carrito.cantidadTotal;
+    cantidadCarrito.style.display = 'block';
+}
 
 form.addEventListener('submit', function(event){
     event.preventDefault();
@@ -177,18 +191,29 @@ form.addEventListener('submit', function(event){
     carrito.precioTotal += (producto.precio * producto.cantidad);
     carrito.cantidadTotal += producto.cantidad;
 
-    mensajeDiv.innerHTML = `<p>¡Producto agregado al carrito!</p>`;
+    // Guardar en localStorage cada vez que se agrega
+    guardarCarrito();
+
+    // ✅ mensaje
+    mensajeDiv.textContent = "¡Producto agregado al carrito!";
     mensajeDiv.style.color = 'green';
     mensajeDiv.style.textAlign = 'center';
+    mensajeDiv.style.opacity = '1';
 
     setTimeout(() => {
         mensajeDiv.style.opacity = '0';
     }, 2000);
 
     setTimeout(() => {
-        mensajeDiv.innerHTML = '';
+        mensajeDiv.textContent = "";
+        mensajeDiv.style.opacity = '1'; // reset
     }, 4000);
 
-
+    cantidadCarrito.textContent = carrito.cantidadTotal;
+    cantidadCarrito.style.display = 'block';
+    cantidadCarrito.style.textAlign = 'center';
+    cantidadCarrito.style.padding = '0.2rem 0.2rem';
     form.reset();
-})
+});
+
+
